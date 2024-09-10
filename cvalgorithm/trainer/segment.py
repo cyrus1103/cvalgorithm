@@ -5,7 +5,6 @@ class Trainer:
     def __init__(self, cfg=DEFAULT_CFG, overrides=None, _callbacks=None):
         self.args = get_cfg(cfg, overrides)
 
-
     #
     def add_callback(self, event: str, callback):
         pass

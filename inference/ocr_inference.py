@@ -14,7 +14,7 @@ import sys
 import torch
 from copy import deepcopy
 
-from cvalgorithm.datasets.PIL_transformer import *
+from cvalgorithm.datasets.pil_transformer import *
 from cvalgorithm.ops.post.db_postprocess import DBPostProcess, DistillationDBPostProcess
 
 fmt = '[%(levelname)s %(asctime)s %(funcName)s:%(lineno)d] %(' 'message)s '

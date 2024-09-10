@@ -1,0 +1,4 @@
+# baseline segment model use convnext tiny with uper segment head
+
+TYPE: SEG
+BACKBONE: CONVNEXT
