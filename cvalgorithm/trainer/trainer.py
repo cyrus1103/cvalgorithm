@@ -1,7 +1,9 @@
 import torch
 import functools
 import inspect
+import warnings
 import logging
+from yacs.config import CfgNode as _CfgNode
 
 
 def _get_args_from_config(from_config_func, *args, **kwargs):
@@ -33,7 +35,10 @@ def _get_args_from_config(from_config_func, *args, **kwargs):
                 extra_kwargs[name] = kwargs.pop(name)
         ret = from_config_func(*args, **kwargs)
         # forward the other arguments to __init__
-        ret.update(extra_kwargs)
+        if ret is None:
+            warnings.warn('from config function is empty !', UserWarning)
+        else:
+            ret.update(extra_kwargs)
     return ret
 
 
@@ -148,8 +153,12 @@ class TrainerManager:
     def __init__(self, cfg):
         super(TrainerManager, self).__init__()
 
-
     def train(self):
+        pass
+
+    @classmethod
+    def from_config(cls, cfg):
+
         pass
 
 

@@ -1,5 +1,5 @@
 import argparse
-from tools.config import DictToAttributes, yaml_model_load
+from tools.config import DictToAttributes, yaml_model_load, CfgNode, get_cfg
 from cvalgorithm.trainer import TrainerManager
 
 
@@ -13,11 +13,13 @@ def parse_args() -> object:
 
 
 def main():
+    cfg = get_cfg()
     args = parse_args()
+    cfg.merge_from_file(args.config)
     if args.ds is not None:
         pass
-    type_config = yaml_model_load(args.config)
-    trainer = TrainerManager(type_config)
+
+    trainer = TrainerManager(cfg)
     try:
         trainer.train()
     except Exception as e:

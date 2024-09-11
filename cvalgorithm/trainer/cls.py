@@ -12,9 +12,6 @@ class ClsTrainer:
     def build_train_dataloader(train_dataset):
         return DataLoader(train_dataset)
 
-
-
-
     def train(self):
 
         schedule_idx = 0
